@@ -29,7 +29,6 @@ const AboutPage = () => {
           With a dedicated team of experts and a focus on quality, Odell Tech IT has empowered over 500 businesses globally. We prioritize customer satisfaction and aim to exceed expectations in every project we deliver.
         </p>
 
-        {/* Mission, Vision & Values */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <Card
             icon={<FaBullseye size={40} className="mx-auto" />}
