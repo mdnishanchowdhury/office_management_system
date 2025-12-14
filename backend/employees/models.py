@@ -57,7 +57,7 @@ class Employee(models.Model):
     # Work Information (Only HR Admin can update these)
     department = models.CharField(max_length=100, blank=True)
     position = models.CharField(max_length=100, blank=True)
-    salary = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    salary = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     hire_date = models.DateField(null=True, blank=True)
     
     # Personal Information
@@ -66,6 +66,11 @@ class Employee(models.Model):
     
     # Status
     status = models.CharField(max_length=20, choices=StatusChoices.choices, default=StatusChoices.ACTIVE)
+
+    # skills
+    skills = models.TextField(blank=True,null=True)
+
+
     
     # grade
     grade= models.CharField(max_length=20, choices=gradeChoices.choices, default=gradeChoices.ACTIVE)
@@ -92,3 +97,8 @@ class Employee(models.Model):
     def get_full_name(self):
         """Return the full name of the employee"""
         return f"{self.first_name} {self.last_name}"
+    
+    def get_skills_list(self):
+        if self.skills:
+            return [s.strip() for s in self.skills.split(',')]
+        return []

@@ -13,6 +13,8 @@ from .serializers import (
     LoginSerializer,
 )
 
+from .ml_predictor import SalaryPredictor
+predictor = SalaryPredictor()
 
 # LOGIN VIEW - User authentication (returns token)
 class LoginView(APIView):
@@ -282,3 +284,64 @@ class MyProfileView(APIView):
                 {'error': 'Profile not found.'},
                 status=status.HTTP_404_NOT_FOUND
             )
+
+# SALARY PREDICTION VIEW - HR Admin only
+# SALARY PREDICTION VIEW - HR Admin only (No employee required)
+class PredictSalaryView(APIView):
+    """
+    POST: Predict salary based on grade, department, designation, and skills.
+    This is a reference tool for HR to determine salary for NEW employees.
+    Only HR Admin can perform this action.
+    """
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        # Check HR Admin role
+        if not is_hr_admin(request.user):
+            return Response(
+                {'error': 'You do not have permission to predict salaries.'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        # Get data from request body
+        grade = request.data.get('grade')
+        department_id = request.data.get('department_id')
+        designation_id = request.data.get('designation_id')
+        skills = request.data.get('skills', '')
+
+        # Validate required fields
+        if not all([grade, department_id, designation_id]):
+            return Response(
+                {'error': 'grade, department_id, and designation_id are required.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if predictor is None:
+            return Response(
+                {'error': 'ML Predictor not available.'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+        try:
+            # Predict salary
+            predicted_salary = predictor.predict_salary(
+                grade=grade,
+                skills_str=skills,
+                department_id=department_id,
+                designation_id=designation_id
+            )
+
+            return Response({
+                'grade': grade,
+                'department_id': department_id,
+                'designation_id': designation_id,
+                'skills': skills,
+                'predicted_salary': float(predicted_salary),
+            }, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response(
+                {'error': f'Prediction failed: {str(e)}'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+

@@ -29,6 +29,7 @@ const DashboardMenu = ({ onLinkClick }) => {
       { path: `${base}/allEmployee`, label: "All Employee", icon: <FaUsers /> },
       {path: `${base}/resignedPage`,label: "Employee Resignation Req",icon: <IoDocumentTextOutline />,},
       {path: `${base}/employeeLeftPage`,label: "Employee Resignation List",icon: <MdEventNote />,},
+      {path: `${base}/powerbl`,label: "PowerBl Dashboard ",icon: <MdEventNote />,},
     ]
     : [
       { path: "/", label: "Home", icon: <FaHome /> },

@@ -18,6 +18,7 @@ import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
 import ResignedPage from "../Page/HR-Dashboard/ResignedPage/ResignedPage";
 import EmployeeLeftPage from "../Page/HR-Dashboard/EmployeeLeftPage";
 import PredictedSalary from "../Page/HR-Dashboard/PredictedSalary/PredictedSalary";
+import Power_bl from "../Page/HR-Dashboard/power_bl/Power_bl";
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/employeeLeave",
         element: <EmployeeLeaveList></EmployeeLeaveList>
+      },
+      {
+        path: "/dashboard/powerbl",
+        element: <Power_bl></Power_bl>
       },
       {
         path: "/dashboard/profile",
