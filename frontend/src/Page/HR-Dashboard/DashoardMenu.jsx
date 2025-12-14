@@ -25,17 +25,10 @@ const DashboardMenu = ({ onLinkClick }) => {
       { path: "/", label: "Home", icon: <FaHome /> },
       { path: `${base}`, label: "Dashboard", icon: <FaChartLine /> },
       { path: `${base}/addEmployee`, label: "New Employee", icon: <FaUserPlus /> },
+      { path: `${base}/predictedsalary`, label: "Predicted Salary", icon: <FaUserPlus /> },
       { path: `${base}/allEmployee`, label: "All Employee", icon: <FaUsers /> },
-      {
-        path: `${base}/resignedPage`,
-        label: "Employee Resignation",
-        icon: <IoDocumentTextOutline />,
-      },
-      {
-        path: `${base}/employeeLeftPage`,
-        label: "Employee Leave List",
-        icon: <MdEventNote />,
-      },
+      {path: `${base}/resignedPage`,label: "Employee Resignation Req",icon: <IoDocumentTextOutline />,},
+      {path: `${base}/employeeLeftPage`,label: "Employee Resignation List",icon: <MdEventNote />,},
     ]
     : [
       { path: "/", label: "Home", icon: <FaHome /> },

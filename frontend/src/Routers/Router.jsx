@@ -17,6 +17,7 @@ import Contact from "../Page/Contact/Contact";
 import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
 import ResignedPage from "../Page/HR-Dashboard/ResignedPage/ResignedPage";
 import EmployeeLeftPage from "../Page/HR-Dashboard/EmployeeLeftPage";
+import PredictedSalary from "../Page/HR-Dashboard/PredictedSalary/PredictedSalary";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addEmployee",
         element: <AddEmployee></AddEmployee>
+      },
+      {
+        path: "/dashboard/predictedsalary",
+        element: <PredictedSalary></PredictedSalary>
       },
       {
         path: "/dashboard/allEmployee",
