@@ -1,12 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
-import Swal from "sweetalert2";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useAuth } from "../Hooks/auth";
+import useLogout from "../Hooks/useLogout";
 
 function NavBar() {
-  const { getUser, logout } = useAuth();
+  const { getUser} = useAuth();
   const user = getUser();
-  console.log(user)
+  const handleLogOut = useLogout();
 
   const activeClass = "text-yellow-400 font-bold";
 
@@ -18,35 +18,6 @@ function NavBar() {
     {user && <li><NavLink to='/dashboard' className={({ isActive }) => isActive ? activeClass : ""}>DASHBOARD</NavLink></li>}
   </>;
 
-  const handleLogOut = () => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      Swal.fire({ icon: "warning", title: "Not logged in!" });
-      return;
-    }
-
-    fetch("http://127.0.0.1:8000/api/auth/logout/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Token ${token}`
-      }
-    }).then(res => {
-      if (res.ok) {
-        logout();
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Successfully Logged Out",
-          showConfirmButton: false,
-          timer: 1500
-        });
-      } else {
-        Swal.fire({ icon: "error", title: "Logout failed!" });
-      }
-    });
-  };
 
   return (
     <div className="navbar fixed z-10 bg-[#15151580] text-white shadow-sm px-1 lg:px-20">

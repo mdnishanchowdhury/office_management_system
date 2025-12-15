@@ -8,8 +8,6 @@ import EmployeeResignation from "../Page/HR-Dashboard/Employee_Resignation/Emplo
 import EmployeeLeaveList from "../Page/HR-Dashboard/Employee_Leave_List/EmployeeLeaveList";
 import HR_Dashboard_Overview from "../Page/HR-Dashboard/HR_Dashboard_Overview/HR_Dashboard_Overview";
 import Profile from "../Page/EmployeeDashboard/Profile/Profile";
-import ViewMenu from "../Page/EmployeeDashboard/Contend/ViewMenu/ViewMenu";
-import ContentDashboard from "../Page/EmployeeDashboard/Contend/ContentDashboard/ContentDashboard";
 import Login from "../Page/Login/Login";
 import AboutPage from "../Page/About/AboutPage";
 import Service from "../Page/Service/Service";
@@ -19,6 +17,7 @@ import ResignedPage from "../Page/HR-Dashboard/ResignedPage/ResignedPage";
 import EmployeeLeftPage from "../Page/HR-Dashboard/EmployeeLeftPage";
 import PredictedSalary from "../Page/HR-Dashboard/PredictedSalary/PredictedSalary";
 import Power_bl from "../Page/HR-Dashboard/power_bl/Power_bl";
+import DashboardRedirect from "../Page/HR-Dashboard/DashboardRedirect/DashboardRedirect";
 
 export const router = createBrowserRouter([
   {
@@ -31,82 +30,80 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <ProtectedRoute allowedRoles={["hradmin"]}><AboutPage></AboutPage></ProtectedRoute>
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><AboutPage /></ProtectedRoute>
       },
       {
-        path: "/service",
-        element: <Service></Service>
+        path: "/service", element: <Service />
       },
       {
         path: "/contact",
-        element: <Contact></Contact>
+        element: <Contact />
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login />
       },
       {
         path: "*",
         element: <h2>NO ROUTE</h2>
-      }
+      },
     ]
   },
   {
     path: "dashboard",
-    element: <HRMenu></HRMenu>,
+    element: <HRMenu />,
     children: [
       {
         path: "",
-        element: <HR_Dashboard_Overview></HR_Dashboard_Overview>
+        element: <DashboardRedirect />
       },
       {
-        path: "/dashboard/addEmployee",
-        element: <AddEmployee></AddEmployee>
+        path: "hr",
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><HR_Dashboard_Overview /></ProtectedRoute>
       },
       {
-        path: "/dashboard/predictedsalary",
-        element: <PredictedSalary></PredictedSalary>
+        path: "addEmployee",
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><AddEmployee /></ProtectedRoute>
       },
       {
-        path: "/dashboard/allEmployee",
-        element: <AllEmployees></AllEmployees>
+        path: "predictedsalary",
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><PredictedSalary /></ProtectedRoute>
       },
       {
-        path: "/dashboard/employeeResignation",
-        element: <EmployeeResignation></EmployeeResignation>
+        path: "allEmployee",
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><AllEmployees /></ProtectedRoute>
       },
       {
-        path: "/dashboard/employeeLeave",
-        element: <EmployeeLeaveList></EmployeeLeaveList>
+        path: "employeeResignation",
+        element:<ProtectedRoute allowedRoles={["hradmin"]}><EmployeeResignation /></ProtectedRoute>
       },
       {
-        path: "/dashboard/powerbl",
-        element: <Power_bl></Power_bl>
+        path: "employeeLeave",
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><EmployeeLeaveList /></ProtectedRoute>
       },
       {
-        path: "/dashboard/profile",
-        element: <Profile></Profile>
+        path: "powerbl",
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><Power_bl /></ProtectedRoute>
       },
       {
-        path: "/dashboard/canteen",
-        element: <ContentDashboard></ContentDashboard>
+        path: "resignedPage",
+        element:<ProtectedRoute allowedRoles={["hradmin"]}><ResignedPage /></ProtectedRoute> 
       },
       {
-        path: "/dashboard/canteen/menu",
-        element: <ViewMenu></ViewMenu>
+        path: "employeeLeftPage",
+        element: <ProtectedRoute allowedRoles={["hradmin"]}><EmployeeLeftPage /></ProtectedRoute> 
       },
+
+      // Employee pages
       {
-        path: "/dashboard/resignedPage",
-        element: <ResignedPage></ResignedPage>
+        path: "profile",
+        element:<ProtectedRoute allowedRoles={["employee"]}><Profile /></ProtectedRoute> 
       },
-      {
-        path: "/dashboard/employeeLeftPage",
-        element: <EmployeeLeftPage></EmployeeLeftPage>
-      },
+
       {
         path: "*",
         element: <h2>NO ROUTE</h2>
-      }
+      },
     ]
   }
 ]);

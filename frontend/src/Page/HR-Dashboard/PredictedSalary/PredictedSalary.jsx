@@ -155,7 +155,7 @@ const PredictedSalary = () => {
             {/* Grade Selection */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-gray-700">
-                Grade <span className="text-red-500">*</span>
+                Grade 
               </label>
               <select
                 name="grade"
@@ -164,7 +164,7 @@ const PredictedSalary = () => {
                 className={inputClass}
                 required
               >
-                <option value="">-- Select Grade --</option>
+                <option value="">Select Grade</option>
                 <option value="1">Grade 1</option>
                 <option value="2">Grade 2</option>
                 <option value="3">Grade 3</option>
@@ -175,7 +175,7 @@ const PredictedSalary = () => {
             {/* Department Selection */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-gray-700">
-                Department <span className="text-red-500">*</span>
+                Department 
               </label>
               <select
                 name="department_id"
@@ -184,7 +184,7 @@ const PredictedSalary = () => {
                 className={inputClass}
                 required
               >
-                <option value="">-- Select Department --</option>
+                <option value="">Select Department</option>
                 <option value="5">CSE (24)</option>
                 <option value="39">IT (25)</option>
                 <option value="6">HR (26)</option>
@@ -198,7 +198,7 @@ const PredictedSalary = () => {
             {/* Designation Selection */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-gray-700">
-                Designation <span className="text-red-500">*</span>
+                Designation 
               </label>
               <select
                 name="designation_id"
@@ -207,7 +207,7 @@ const PredictedSalary = () => {
                 className={inputClass}
                 required
               >
-                <option value="">-- Select Designation --</option>
+                <option value="">Select Designation</option>
                 <option value="60">Software Engineer</option>
                 <option value="125">Senior Engineer</option>
                 <option value="124">Team Lead</option>
@@ -223,30 +223,30 @@ const PredictedSalary = () => {
             {/* Skills Selection */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-gray-700">
-                Skills <span className="text-red-500">*</span>
+                Skills 
               </label>
               <select onChange={handleAddSkill} className={inputClass}>
-                <option value="">-- Add a skill --</option>
+                <option value="">Add a skill</option>
                 <option value="8">html</option>
-                <option value="9">Skill 2</option>
-                <option value="10">Skill 3</option>
-                <option value="11">Skill 4</option>
-                <option value="12">Skill 5</option>
-                <option value="13">Skill 6</option>
-                <option value="14">Skill 7</option>
-                <option value="15">Skill 8</option>
-                <option value="16">Skill 9</option>
-                <option value="17">Skill 10</option>
-                <option value="31">Skill 11</option>
-                <option value="32">Skill 12</option>
-                <option value="44">Skill 13</option>
-                <option value="47">Skill 14</option>
-                <option value="80">Skill 15</option>
-                <option value="90">Skill 16</option>
-                <option value="93">Skill 17</option>
-                <option value="51">Skill 18</option>
-                <option value="163">Skill 19</option>
-                <option value="172">Skill 20</option>
+                <option value="9">css</option>
+                <option value="10">tailwind css</option>
+                <option value="11">javascipt</option>
+                <option value="12">React.js</option>
+                <option value="13">Next.js</option>
+                <option value="14">Vue.js</option>
+                <option value="15">Node.js</option>
+                <option value="16">Express.js</option>
+                <option value="17">Python</option>
+                <option value="31">Django</option>
+                <option value="32">Mysql</option>
+                <option value="44">Mongodb</option>
+                <option value="47">Postgre</option>
+                <option value="80">C</option>
+                <option value="90">C++</option>
+                <option value="93">Java</option>
+                <option value="51">Firebase</option>
+                <option value="163">Go</option>
+                <option value="172">C#</option>
               </select>
             </div>
 
@@ -306,7 +306,7 @@ const PredictedSalary = () => {
                     Predicting...
                   </span>
                 ) : (
-                  "🔮 Predict Salary"
+                  "Predict Salary"
                 )}
               </button>
 
@@ -323,7 +323,7 @@ const PredictedSalary = () => {
 
         {/* Info Card */}
         <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <h3 className="font-semibold text-blue-800 mb-2">💡 How to use:</h3>
+          <h3 className="font-semibold text-blue-800 mb-2">How to use:</h3>
           <ol className="text-sm text-blue-700 space-y-1 list-decimal list-inside">
             <li>Select the grade, department, and designation</li>
             <li>Add relevant skills from the dropdown</li>
