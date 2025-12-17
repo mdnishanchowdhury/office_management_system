@@ -1,7 +1,7 @@
 import React from "react";
 
 function Power_bl() {
-  const reportUrl = "https://app.powerbi.com/links/Vocq28qmkI?ctid=d64fc2a1-e3c6-4a8a-8d65-4366182c78f6&pbi_source=linkShare";
+  const reportUrl = "https://app.powerbi.com/groups/me/reports/5f6fcb6a-7364-4f14-8cd4-06876e40cc69/950467eb02c960bed677?ctid=d64fc2a1-e3c6-4a8a-8d65-4366182c78f6&experience=power-bi";
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
