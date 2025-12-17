@@ -1,4 +1,4 @@
-# 🏢 Office Employee Management System (Django + ML)
+# 🏢 Office Employee Management System  Backend (Django + ML)
 
 A full-featured **Employee Management System** built with **Django Rest Framework**, featuring **role-based access**, **JWT/Token authentication**, and an **ML-powered salary prediction system**.
 
@@ -136,7 +136,7 @@ python insert_database.py
 * Salary history tracking
 
 ---
-# 🍽️ Frontend
+# 🏢 Office Management System – Frontend
 
 A modern and responsive **Office Management System Website Frontend** built with **React**, **Tailwind CSS**, and popular React libraries.
 This project focuses on performance, user experience, and clean UI components.
