@@ -64,7 +64,7 @@ A full-featured **Office Employee Management System** built with **Django REST F
 
 ## 🛠️ Backend Tech Stack
 
-* **Framework:** Django, Django REST Framework
+* **Framework:** Django (Python 3.11.9), Django REST Framework
 * **Authentication:** Token Authentication
 * **Database:** MySQL
 * **ML:** Scikit-learn, Pandas, NumPy
