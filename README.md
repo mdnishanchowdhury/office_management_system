@@ -103,7 +103,26 @@ pip install -r requirements.txt
 
 ---
 
-### 4️⃣ MySQL: Create Django Database User (Recommended)
+
+## 🧪 MySQL Demo Data
+
+### Create Database
+
+To run,
+```bash
+python setup_database.py
+```
+
+
+### Insert Demo Data
+
+To run,
+
+```bash
+python insert_database.py
+```
+
+### 4️⃣ MySQL: Create Django Database User ( Create a file in the root backend folder named, create_django_user.py and then run it )
 
 ```python
 import mysql.connector
@@ -192,19 +211,6 @@ http://127.0.0.1:8000/
 
 ---
 
-## 🧪 MySQL Demo Data (Optional)
-
-### Create Database
-
-```bash
-python setup_database.py
-```
-
-### Insert Demo Data
-
-```bash
-python insert_database.py
-```
 
 ---
 
