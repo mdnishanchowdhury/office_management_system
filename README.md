@@ -180,21 +180,9 @@ python manage.py createsuperuser
 
 ---
 
-# .env
+# .env install
 ```bash
 pip install python-dotenv
-```
-## Create .env:
-
-```
-DB_ENGINE=django.db.backends.mysql
-DB_NAME=hr_office_db
-DB_USER=django_user
-DB_PASSWORD=django_user_password
-DB_HOST=localhost
-DB_PORT=3306
-DEBUG=True
-SECRET_KEY=django-insecure-*tgc)n*2)8o!_u&g5fo^tne8-=&3!(45$qja5-m4cuj3ub_k3_
 ```
 
 ### 7️⃣ Run Backend Server
