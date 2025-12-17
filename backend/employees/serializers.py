@@ -3,9 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from .models import Employee, StatusChoices, gradeChoices
 
-# ===============================
 # EMPLOYEE SERIALIZER - HR FULL ACCESS
-# ===============================
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
@@ -33,9 +31,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at', 'updated_at']
 
 
-# ===============================
 # EMPLOYEE PROFILE SERIALIZER - LIMITED EMPLOYEE ACCESS
-# ===============================
 class EmployeeProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
@@ -64,9 +60,7 @@ class EmployeeProfileSerializer(serializers.ModelSerializer):
         ]
 
 
-# ===============================
 # USER REGISTRATION SERIALIZER
-# ===============================
 class UserRegistrationSerializer(serializers.Serializer):
     # USER FIELDS
     username = serializers.CharField(max_length=150)
@@ -90,9 +84,8 @@ class UserRegistrationSerializer(serializers.Serializer):
     grade = serializers.ChoiceField(choices=gradeChoices.choices, default=gradeChoices.ACTIVE)
     skills = serializers.CharField(required=False, allow_blank=True)  # comma-separated skills
 
-    # ----------------------------
+  
     # VALIDATION
-    # ----------------------------
     def validate_username(self, value):
         if User.objects.filter(username=value).exists():
             raise serializers.ValidationError("Username already exists.")
@@ -108,9 +101,7 @@ class UserRegistrationSerializer(serializers.Serializer):
             raise serializers.ValidationError("Employee ID already exists.")
         return value
 
-    # ----------------------------
     # CREATE USER + EMPLOYEE
-    # ----------------------------
     def create(self, validated_data):
         username = validated_data.pop('username')
         password = validated_data.pop('password')
@@ -133,9 +124,7 @@ class UserRegistrationSerializer(serializers.Serializer):
         return employee
 
 
-# ===============================
 # LOGIN SERIALIZER
-# ===============================
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)

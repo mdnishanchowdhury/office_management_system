@@ -16,7 +16,6 @@ const HR_Dashboard_Overview = () => {
   const [employees, setEmployees] = useState([]);
   const token = localStorage.getItem("token");
 
-  /* ================= FETCH EMPLOYEES ================= */
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/employees/", {
       headers: {
@@ -26,7 +25,6 @@ const HR_Dashboard_Overview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // ✅ Handle DRF pagination + normal array
         if (Array.isArray(data)) {
           setEmployees(data);
         } else if (Array.isArray(data?.results)) {
@@ -38,7 +36,6 @@ const HR_Dashboard_Overview = () => {
       .catch(() => setEmployees([]));
   }, [token]);
 
-  /* ================= SAFE FILTERS ================= */
   const resignedEmployees = Array.isArray(employees)
     ? employees.filter((emp) => emp.status === "resigned")
     : [];
@@ -47,7 +44,6 @@ const HR_Dashboard_Overview = () => {
     ? employees.filter((emp) => emp.status === "inactive")
     : [];
 
-  /* ================= DEPARTMENT COUNT ================= */
   const departmentCount = Array.isArray(employees)
     ? employees.reduce((acc, emp) => {
         const dept = emp.department || "Unknown";
@@ -63,7 +59,6 @@ const HR_Dashboard_Overview = () => {
     })
   );
 
-  /* ================= MONTHLY DATA ================= */
   const months = [
     "Jan","Feb","Mar","Apr","May","Jun",
     "Jul","Aug","Sep","Oct","Nov","Dec"
@@ -96,7 +91,6 @@ const HR_Dashboard_Overview = () => {
     resigned: monthlyResignations[index].resigned,
   }));
 
-  /* ================= UI ================= */
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -127,7 +121,6 @@ const HR_Dashboard_Overview = () => {
 
       {/* CHARTS */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* Department Chart */}
         <div className="bg-white rounded-xl shadow p-6 h-80">
           <h2 className="text-lg font-semibold mb-4">
             📊 Employee Department Chart
