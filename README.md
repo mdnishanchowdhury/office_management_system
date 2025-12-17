@@ -117,7 +117,7 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 
 cursor.execute("DROP USER IF EXISTS 'django_user'@'localhost'")
-cursor.execute("CREATE USER 'django_user'@'localhost' IDENTIFIED BY 'django_password123'")
+cursor.execute("CREATE USER 'django_user'@'localhost' IDENTIFIED BY 'django_user_password'")
 cursor.execute("GRANT ALL PRIVILEGES ON hr_office_db.* TO 'django_user'@'localhost'")
 cursor.execute("FLUSH PRIVILEGES")
 
@@ -134,8 +134,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hr_office_db',
-        'USER': 'your_user',
-        'PASSWORD': 'your_password',
+        'USER': 'django_user',
+        'PASSWORD': 'django_user_password',
         'HOST': 'localhost',
         'PORT': '3306',
     }
