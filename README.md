@@ -39,6 +39,8 @@ A full-featured **Office Employee Management System** built with **Django REST F
 
 ### 🤖 ML Salary Prediction
 
+[GitHub Repo](https://github.com/mdzubair9492/Internship-Project)
+
 * Predict salary based on:
 
   * Grade
